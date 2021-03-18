@@ -40,11 +40,16 @@ const emailUser = async (deviceId, location, date) => {
     console.log(deviceId)
     try {
         const user = await User.findOne({deviceId: deviceId});
-        console.log("YOU MIGHT HAVE COVID: ", user.email, location, date);
+        console.log("YOU MIGHT HAVE COVID: ", user.email, location, formatDate(date));
     } catch {
 
     }
 }
+
+const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" }
+    return new Date(dateString).toLocaleDateString(undefined, options)
+  }
 
 //LOG NEW OUTBREAK
 
