@@ -17,7 +17,7 @@ const getVisitsInLastTwoWeeks = async (deviceId, date) => {
             }
         })
     } catch (error) {
-        console.log("ERROR LOOKING UP VISITS IN OUTBREAK CONTROLLER")
+        console.log(error)
     }
 }
 
@@ -31,18 +31,24 @@ const getUsersWhoVisitedThatVenueWithin2Days = async (location, outbreakDate) =>
                 emailUser(visit.deviceId, visit.location, visit.date);
             }
         })
-    } catch {
-        console.log("ERROR LOOKING UP VISITS IN OUTBREAK CONTROLLER 2")
+    } catch (error) {
+        console.log(error)
     }
 }
 
 const emailUser = async (deviceId, location, date) => {
-    console.log(deviceId)
     try {
         const user = await User.findOne({deviceId: deviceId});
-        console.log("YOU MIGHT HAVE COVID: ", user.email, location, formatDate(date));
-    } catch {
-
+        const details = {
+            message: "You might have covid",
+            email: user.email,
+            location: location,
+            date: formatDate(date),
+            time: date.getHours() + ":" + date.getMinutes()
+        }
+        console.log(details);
+    } catch (error) {
+        console.log(error)
     }
 }
 
