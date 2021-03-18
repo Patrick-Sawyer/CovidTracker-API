@@ -5,7 +5,7 @@ const router = express.Router();
 
 //ADD A USER
 
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     const user = new User({
         deviceId: req.body.deviceId,
         email: req.body.email

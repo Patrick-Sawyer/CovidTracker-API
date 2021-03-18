@@ -5,7 +5,7 @@ const router = express.Router();
 
 //LOG NEW OUTBREAK
 
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     const outbreak = new Outbreak({
         deviceId: req.body.deviceId,
     })

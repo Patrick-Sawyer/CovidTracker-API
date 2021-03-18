@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const VisitSchema = mongoose.Schema({
-    user: {
-        type: Number,
+    deviceId: {
+        type: String,
         required: true
     },
     location: {
-        type: Number,
+        type: String,
         required: true
     },
     date: {

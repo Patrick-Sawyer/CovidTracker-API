@@ -5,7 +5,7 @@ const router = express.Router();
 
 //ADD NEW LOCATION
 
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     const location = new Location({
         name: req.body.name
     })

@@ -5,9 +5,9 @@ const router = express.Router();
 
 //LOG A VISIT
 
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     const visit = new Visit({
-        user: req.body.user,
+        deviceId: req.body.deviceId,
         location: req.body.location
     })
     try {
